@@ -27,7 +27,6 @@ class Graph
         newNode->next = head;
         return newNode;
     }
-10
     int N;  // number of nodes in the graph
 public:
     // An array of pointers to Node to represent
@@ -53,7 +52,6 @@ public:
             // point head pointer to new node
             head[src] = newNode;
             // Uncomment below lines for undirected graph
-11
             /*
             newNode = getAdjListNode(src, weight, head[dest]);
             // change head pointer to point to the new node
@@ -82,7 +80,6 @@ void printList(Node* ptr, int i)
 // Graph Implementation in C++ without using STL
 int main()
 {
-12
     // array of graph edges as per above diagram.
     Edge edges[] =
     {
@@ -103,4 +100,4 @@ int main()
         printList(graph.head[i], i);
     }
     return 0;
-    }
+}
