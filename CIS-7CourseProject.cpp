@@ -4,7 +4,7 @@ Authors: Ivan Sebastian Perez, Eric Coria, Marlon Jimenez
 Program Desrciption: 
 
 */
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 // Data structure to store Adjacency list nodes
 struct Node {
@@ -66,7 +66,7 @@ public:
         delete[] head;
     }
 };
-// print all neighboring vertices of given vertex
+// Choice 4: print all neighboring vertices of given vertex
 void printList(Node* ptr, int i)
 {
     while (ptr != nullptr)
@@ -84,11 +84,11 @@ int main()
     Edge edges[] =
     {
         // (x, y, w) -> edge from x to y having weight w
-        { 0, 1, 6 }, { 1, 2, 7 }, { 2, 0, 5 }, { 2, 1, 4 },
-        { 3, 2, 10 }, { 4, 5, 1 }, { 5, 4, 3 }
+        { 1, 2, 16 }, { 1, 3, 33 }, { 1, 4, 24 }, { 2, 3, 26 },
+        { 3, 4, 30 }, { 4, 2, 18 }
     };
     // Number of vertices in the graph
-    int N = 6;
+    int N = 5;
     // calculate number of edges
     int n = sizeof(edges)/sizeof(edges[0]);
     // construct graph
