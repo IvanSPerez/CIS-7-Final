@@ -2,7 +2,9 @@
 Class: CIS-7
 Authors: Ivan Sebastian Perez, Eric Coria, Marlon Jimenez
 Program Desrciption: 
-
+Choice 1: Eric
+Choice 2: Marlon
+Choice 3: Ivan
 */
 #include <bits/stdc++.h>
 using namespace std;
