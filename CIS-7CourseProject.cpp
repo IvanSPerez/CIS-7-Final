@@ -1,12 +1,7 @@
-/*
-Class: CIS-7
-Authors: Ivan Sebastian Perez, Eric Coria, Marlon Jimenez
-Program Desrciption: 
-Choice 1: Eric
-Choice 2: Marlon
-Choice 3: Ivan
-*/
-#include <bits/stdc++.h>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 // Data structure to store Adjacency list nodes
 struct Node {
@@ -33,12 +28,12 @@ class Graph
 public:
     // An array of pointers to Node to represent
     // adjacency list
-     Node **head;
+    Node** head;
     // Constructor
     Graph(Edge edges[], int n, int N)
     {
         // allocate memory
-        head = new Node*[N]();
+        head = new Node * [N]();
         this->N = N;
         // initialize head pointer for all vertices
         for (int i = 0; i < N; ++i)
@@ -54,10 +49,11 @@ public:
             // point head pointer to new node
             head[src] = newNode;
             // Uncomment below lines for undirected graph
+            /*
             newNode = getAdjListNode(src, weight, head[dest]);
             // change head pointer to point to the new node
             head[dest] = newNode;
-            
+            */
         }
     }
     // Destructor
@@ -91,7 +87,7 @@ int main()
     // Number of vertices in the graph
     int N = 5;
     // calculate number of edges
-    int n = sizeof(edges)/sizeof(edges[0]);
+    int n = sizeof(edges) / sizeof(edges[0]);
     // construct graph
     Graph graph(edges, n, N);
     // print adjacency list representation of graph
