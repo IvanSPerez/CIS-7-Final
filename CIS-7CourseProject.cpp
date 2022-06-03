@@ -67,7 +67,7 @@ public:
         delete[] head;
     }
 };
-// Choice 4: print all neighboring vertices of given vertex
+// print all neighboring vertices of given vertex
 void printList(Node* ptr, int i)
 {
     while (ptr != nullptr)
@@ -78,6 +78,33 @@ void printList(Node* ptr, int i)
     }
     cout << endl;
 }
+
+/*
+//Choice 4: Matrix
+void matrixMap(){
+// array of graph edges as per above diagram.
+    Edge edges[] =
+    {
+        // (x, y, w) -> edge from x to y having weight w
+        { 1, 2, 16 }, { 1, 3, 33 }, { 1, 4, 24 }, { 2, 3, 26 },
+        { 3, 4, 30 }, { 4, 2, 18 }
+    };
+    // Number of vertices in the graph
+    int N = 5;
+    // calculate number of edges
+    int n = sizeof(edges)/sizeof(edges[0]);
+    // construct graph
+    Graph graph(edges, n, N);
+    // print adjacency list representation of graph
+    for (int i = 0; i < N; i++)
+    {
+        // print all neighboring vertices of vertex i
+        printList(graph.head[i], i);
+    }
+ }
+
+*/
+
 // Graph Implementation in C++ without using STL
 int main()
 {
