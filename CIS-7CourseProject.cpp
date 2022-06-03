@@ -74,7 +74,7 @@ void printList(Node* ptr, int i)
     while (ptr != nullptr)
     {
         cout << "(" << i << ", " << ptr->val
-            << ", " << ptr->cost << ") ";
+            << ", " << ptr->cost << " Miles) ";
         ptr = ptr->next;
     }
     cout << endl;
