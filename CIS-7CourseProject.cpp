@@ -2,9 +2,10 @@
 Class: CIS-7
 Authors: Ivan Sebastian Perez, Eric Coria, Marlon Jimenez
 Program Desrciption: 
-Choice 1: Eric
-Choice 2: Marlon
-Choice 3: Ivan
+Choice 1: Eric (Trip Planner/ Representation)
+Choice 2: Marlon (Cost Effective/ Shortest Path)
+Choice 3: Ivan (Adjacencies)
+Choice 4: Map/Matrix (DONE)
 */
 #include <bits/stdc++.h>
 using namespace std;
