@@ -54,11 +54,10 @@ public:
             // point head pointer to new node
             head[src] = newNode;
             // Uncomment below lines for undirected graph
-            /*
             newNode = getAdjListNode(src, weight, head[dest]);
             // change head pointer to point to the new node
             head[dest] = newNode;
-            */
+            
         }
     }
     // Destructor
