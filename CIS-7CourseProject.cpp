@@ -92,10 +92,18 @@ void printList(Node* ptr, int i)
 }
 
 //Choice 2: Most cost effective route
-void cheapestRoute()
+void cheapestRoute(vector<int> adj[], int V)
 {
+    //double check legend and make sure it matches correct output
     cout << "\n 1. Riverside 2. Moreno Valley 3. Hemet 4. Perris \n" ;
-    cout << " 1 -> 4 -> 3 -> 2 \n" ;
+    //lab 10 example 1
+    for (int v = 1; v < V; ++v)
+    {
+        cout << "\n Most cost effective path " << v;
+        for (auto x: adj[v])
+           cout << " -> " << x;
+        printf("\n");
+    }
 }
 
 /*
@@ -146,5 +154,16 @@ int main()
         // print all neighboring vertices of vertex i
         printList(graph.head[i], i);
     }
+    
+    /* Choice 2
+    //lab 10 example 1
+        int V = 4;
+    //adjancies pairs
+        vector<int> adj[V];
+        addEdge(adj, 1, 4);
+        addEdge(adj, 1, 3);
+        addEdge(adj, 1, 2);
+        printcheapestRoute(adj, V);
+   */
     return 0;
 }
