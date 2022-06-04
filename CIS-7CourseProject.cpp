@@ -91,6 +91,13 @@ void printList(Node* ptr, int i)
     cout << endl;
 }
 
+//Choice 2: Most cost effective route
+void cheapestRoute()
+{
+    cout << "\n 1. Riverside 2. Moreno Valley 3. Hemet 4. Perris \n" ;
+    cout << " 1 -> 4 -> 3 -> 2 \n" ;
+}
+
 /*
 //Choice 4: Matrix
 void matrixMap(){
