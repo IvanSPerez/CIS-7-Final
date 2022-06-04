@@ -17,7 +17,7 @@ void addEdge(vector<int> adj[], int u, int v)
     adj[u].push_back(v);
     adj[v].push_back(u);
 }
-
+//chioce 2
 void printGraphChoice2(vector<int> adj[], int V)
 {
     for (int v = 1; v < V; ++v)
