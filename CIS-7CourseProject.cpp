@@ -7,7 +7,9 @@ Choice 2: Marlon (Cost Effective/ Shortest Path)
 Choice 3: Ivan (Adjacencies)
 Choice 4: Map/Matrix (DONE)
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 //A utility function to add an edge in
@@ -17,17 +19,7 @@ void addEdge(vector<int> adj[], int u, int v)
     adj[u].push_back(v);
     adj[v].push_back(u);
 }
-//chioce 2
-void printGraphChoice2(vector<int> adj[], int V)
-{
-    for (int v = 1; v < V; ++v)
-    {
-        cout << "\n Most cost effective path " << v;
-        for (auto x: adj[v])
-           cout << " -> " << x;
-        printf("\n");
-    }
-}
+
 // Data structure to store Adjacency list nodes
 struct Node {
     int val, cost;
