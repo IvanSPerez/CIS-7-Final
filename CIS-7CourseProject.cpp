@@ -12,13 +12,24 @@ Choice 4: Map/Matrix (DONE)
 #include <algorithm>
 using namespace std;
 
-//A utility function to add an edge in
-//an undirected graph
-void addEdge(vector<int> adj[], int u, int v)
+
+//struct
+struct adjacent
 {
-    adj[u].push_back(v);
-    adj[v].push_back(u);
-}
+    int city, adj1, adj2, adj3;
+};
+
+// classes
+class cityMap
+{
+private:
+    adjacent cityMap[4];
+
+public:
+    void createMap();
+    void printMap();
+
+};
 
 // Data structure to store Adjacency list nodes
 struct Node {
@@ -79,6 +90,18 @@ public:
         delete[] head;
     }
 };
+
+// used in printing out route variations
+void printList(Node* ptr)
+{
+    while (ptr != nullptr)
+    {
+        cout << " -> " << ptr->val << " ";
+        ptr = ptr->next;
+    }
+    cout << endl;
+}
+
 // print all neighboring vertices of given vertex
 void printList(Node* ptr, int i)
 {
@@ -91,79 +114,156 @@ void printList(Node* ptr, int i)
     cout << endl;
 }
 
+// functions 
+void cityMap :: createMap()
+{
+
+    for (int i = 0; i < 5; i++)
+    {
+
+        cityMap[i].city = i + 1;
+        if ((i + 1) == 1)
+        {
+            cityMap[i].adj1 = 2;
+            cityMap[i].adj2 = 3;
+            cityMap[i].adj3 = 4;
+        }
+        else if ((i + 1) == 2)
+        {
+            cityMap[i].adj1 = 1;
+            cityMap[i].adj2 = 3;
+            cityMap[i].adj3 = 4;
+        }
+        else if ((i + 1) == 3)
+        {
+            cityMap[i].adj1 = 1;
+            cityMap[i].adj2 = 2;
+            cityMap[i].adj3 = 4;
+        }
+        else if ((i + 1) == 4)
+        {
+            cityMap[i].adj1 = 1;
+            cityMap[i].adj2 = 2;
+            cityMap[i].adj3 = 3;
+        }
+    }
+}
+void cityMap :: printMap()
+{
+    cout << " LEGEND: \n 1. Riverside \n 2. Perris \n 3. Moreno Valley \n 4. Hemet\n";
+    for (int i = 0; i < 4; i++)
+    {
+        cout << "\n City: " << cityMap[i].city << " \nis adjacent to cities -> " <<
+            cityMap[i].adj1 << ", " << cityMap[i].adj2 << ", " << cityMap[i].adj3 << endl;
+    }
+}
+
 //Choice 2: Most cost effective route
-void cheapestRoute(vector<int> adj[], int V)
+void cheapestRoute()
 {
-    //double check legend and make sure it matches correct output
-    cout << "\n 1. Riverside 2. Moreno Valley 3. Hemet 4. Perris \n" ;
-    //lab 10 example 1
-    for (int v = 1; v < V; ++v)
-    {
-        cout << "\n Most cost effective path " << v;
-        for (auto x: adj[v])
-           cout << " -> " << x;
-        printf("\n");
-    }
-}
-
-/*
-//Choice 4: Matrix
-void matrixMap(){
-// array of graph edges as per above diagram.
-    Edge edges[] =
-    {
-        // (x, y, w) -> edge from x to y having weight w
-        { 1, 2, 16 }, { 1, 3, 33 }, { 1, 4, 24 }, { 2, 3, 26 },
-        { 3, 4, 30 }, { 4, 2, 18 }
-    };
-    // Number of vertices in the graph
-    int N = 5;
-    // calculate number of edges
-    int n = sizeof(edges)/sizeof(edges[0]);
-    // construct graph
-    Graph graph(edges, n, N);
-    // print adjacency list representation of graph
-    for (int i = 0; i < N; i++)
-    {
-        // print all neighboring vertices of vertex i
-        printList(graph.head[i], i);
-    }
- }
-
-*/
-
-// Graph Implementation in C++ without using STL
-int main()
-{
-    // array of graph edges as per above diagram.
-    Edge edges[] =
-    {
-        // (x, y, w) -> edge from x to y having weight w
-        { 1, 2, 16 }, { 1, 3, 33 }, { 1, 4, 24 }, { 2, 3, 26 },
-        { 3, 4, 30 }, { 4, 2, 18 }
-    };
-    // Number of vertices in the graph
-    int N = 5;
-    // calculate number of edges
-    int n = sizeof(edges)/sizeof(edges[0]);
-    // construct graph
-    Graph graph(edges, n, N);
-    // print adjacency list representation of graph
-    for (int i = 0; i < N; i++)
-    {
-        // print all neighboring vertices of vertex i
-        printList(graph.head[i], i);
-    }
     
-    /* Choice 2
-    //lab 10 example 1
-        int V = 4;
-    //adjancies pairs
-        vector<int> adj[V];
-        addEdge(adj, 1, 4);
-        addEdge(adj, 1, 3);
-        addEdge(adj, 1, 2);
-        printcheapestRoute(adj, V);
-   */
-    return 0;
 }
+
+void printLegend()
+{
+  cout << " LEGEND: \n 1. Riverside \n 2. Perris \n 3. Moreno Valley \n 4. Hemet\n";
+}
+
+ int main()
+ {
+     int choice = 0;
+
+     cout << "Welcome to CAR's routing program, please choose from one of the following options: " << endl;
+     cout << "1. Trip Planning (Route Variations)" << endl;
+     cout << "2. Shortest Path (Lowest Cost Trips)" << endl;
+     cout << "3. Roads (Adjecencies)" << endl;
+     cout << "4. Map (Matrix)" << endl;
+     cout << "5. Exit Program" << endl;
+
+     do
+     {
+         cout << "Enter your choice: ";
+         cin >> choice;
+         cout << endl;
+
+         if (choice < 1 || choice > 5)
+         {
+             cout << "Invalid choice, please enter a valid choice." << endl << endl;
+         }
+
+         else
+             switch (choice)
+             {
+             case 1:
+             {
+                 cout << "You picked choice: 1." << endl << endl;
+               printLegend();
+               
+               cout << "These are the possible routes: " << endl;
+               // setting relationships
+               Edge edges[] = { {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4}, {3, 4} };
+
+               int N = 5;
+               int n = sizeof(edges) / sizeof(edges[0]);
+               Graph graph(edges, n, N);
+               for (int i = 1; i < N; i++)
+               {
+                   cout << i;
+                   printList(graph.head[i]);
+               }
+                 break;
+             }
+
+             case 2:
+             {
+                 cout << "You picked choice: 2." << endl << endl;
+                  printLegend();
+                  //Choice 2
+         
+                      cheapestRoute();
+    
+                 break;
+             }
+
+             case 3:
+             {
+                 cout << "You picked choice: 3.\nYou would like to view the       adjacent cities!\n" << endl << endl;
+                 cityMap cityMap1;
+                 cityMap1.createMap();
+                 cityMap1.printMap();
+                 break;
+             }
+
+             case 4:
+             {
+                 cout << "You picked choice: 4." << endl << endl;
+                 printLegend();
+               // lab 10 example 3
+               // array of graph edges as per above diagram.
+                  Edge edges[] =
+                  {
+                      // (x, y, w) -> edge from x to y having weight w
+                      { 1, 2, 24 }, { 1, 3, 16 }, { 1, 4, 33 }, { 2, 3, 18 },
+                      { 3, 4, 26 }, { 4, 2, 30 }
+                  };
+                  // Number of vertices in the graph
+                  int N = 5;
+                  // calculate number of edges
+                  int n = sizeof(edges)/sizeof(edges[0]);
+                  // construct graph
+                  Graph graph(edges, n, N);
+                  // print adjacency list representation of graph
+                  for (int i = 0; i < N; i++)
+                  {
+                      // print all neighboring vertices of vertex i
+                      printList(graph.head[i], i);
+                  }
+                               break;
+                           }
+             }
+
+     } while (choice != 5);
+
+     cout << "Thanks for playing.";
+     return 0;
+ }
