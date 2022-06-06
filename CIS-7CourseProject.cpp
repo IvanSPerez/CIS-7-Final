@@ -162,6 +162,7 @@ void cheapestRoute()
 {
     //The cheapest route is determined by finding the shortest path
     //This is done by choosing the path with the lowest graph line weight overall
+    cout << "The most cost effective route is: " << endl;
     cout << " 1 -> 2 -> 4 -> 3 " << endl << endl;
 }
 
