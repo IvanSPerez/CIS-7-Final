@@ -1,11 +1,10 @@
 /*
-Class: CIS-7
+Class: CIS-7 Discrete Structures
 Authors: Ivan Sebastian Perez, Eric Coria, Marlon Jimenez
-Program Desrciption: 
-Choice 1: Eric (Trip Planner/ Representation)
-Choice 2: Marlon (Cost Effective/ Shortest Path)
-Choice 3: Ivan (Adjacencies)
-Choice 4: Map/Matrix (DONE)
+Program Desrciption: This program will show the user the variations of trips to the noted cities
+that must be taken to market their products. The program will determine and display possible routes,
+the cheapest route, alternate roads, and a general map of the routes between the cities.
+Date: June 5, 2022
 */
 #include <iostream>
 #include <vector>
@@ -161,11 +160,14 @@ void cityMap :: printMap()
 //Choice 2: Most cost effective route
 void cheapestRoute()
 {
-    
+    //The cheapest route is determined by finding the shortest path
+    //This is done by choosing the path with the lowest graph line weight overall
+    cout << " 1 -> 2 -> 4 -> 3 " << endl << endl;
 }
 
 void printLegend()
 {
+    //Genral Legend to improve output readability for user
   cout << " LEGEND: \n 1. Riverside \n 2. Perris \n 3. Moreno Valley \n 4. Hemet\n";
 }
 
